@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Holy Grail</title>
+        <link rel="stylesheet" href="style.css">
+      </head>
+    <body>
+            <div class = "header">
+                <div class = "logo">
+                    <h1>Annyeongz</h1>
+                </div>
+                <div class = "nav">
+                    <ul class = "nav-links">
+                        <li><a href = "#cards"> Cards </a></li>
+                        <li><a href = "#quote"> Quote </a></li>
+                        <li><a href = "#sign-up"> Sign Up </a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class = "intro-cont">
+                <div class = "intro">
+                    <strong>I love Ive</strong>
+                    <p>
+                        Ive is very nice and good but most of all Annyeongz is the best. 
+                    </p>
+                    <button id = "clicker" onClick="onClick()">
+                        Click Me
+                    </button>
+                </div>
+                <div class = "image">
+                    <img src="./src/wonyoungiam.png"  width = "300" alt= "image of a Wonyoung">
+                </div>
+            </div>
+
+        <section id = "cards"></section>
+        <div class = "card-cont">
+            <div class = "card-title">
+                <h1> Some pictures of Wonyoung and Yujin </h1>
+            </div>
+            <div class = card-section>
+                <div class = "card">
+                    <img src="./src/yujin.webp" width = "185" alt="yujin">
+                    <p>Yujin</p>
+                </div>
+                <div class = "card">
+                    <img src="./src/annyeongz.webp" width = "185" alt="yujin">
+                    <p>Annyeongz</p>
+                </div>
+                <div class = "card">
+                    <img src="./src/annyeongz1.webp" width = "185" height = "277" alt="yujin">
+                    <p>Wonjin</p>
+                </div>
+                <div class = "card">
+                    <img src="./src/mark.jpg" width = "185" height="277" alt="yujin">
+                    <p>A spoiler for what's next</p>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <section id = "quote">
+        <div class = "quote">
+            <i>uh, you think you think ya big boi throwing three stacks, I'ma show you how to ball you a mismatch, opinionated but i'm always spitting straight facts, throwback I might throw this on an 8 track</i>
+            <h1>-Mark Lee, NCT/NCT127/NCT DREAM/NCT U/SUPERM/WEATHERMAN</h1>
+        </div>
+        </section>
+
+        <section id = "sign-up">
+        <div class = "sign-up-cont">
+            <div class = "sign-up"> 
+                <div class="sign-up-text">
+                    <strong>Call to action! It's time!</strong>
+                    <p>Vote for Wonyoung and Yujin as your IVE biases!!!</p>
+                </div>
+                <div class="sign-up-button">
+                    <button onclick = "window.location.href='https://kprofiles.com/ive-members-profile/';">
+                        Vote Here
+                    </button>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <div class = "footer">
+            <p>Copyright © Delusional Kpop Stan 2023</p>
+        </div>
+
+        <script>
+            var counter = document.getElementById("clicker");
+            var clicks = 0;
+            function onClick() {
+                clicks += 1;
+                counter.innerHTML = "" + clicks;
+            }
+        </script>
+
+    </body>    
+</html>

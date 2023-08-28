@@ -1,0 +1,141 @@
+body{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+h1{
+    border: 5px blue;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #1F2937;
+    color: white;
+    padding: 50px;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+}
+
+.nav-links{
+    display: flex;
+    list-style-type: none;
+    gap: 10px;
+}
+
+.intro-cont{
+    display: flex;
+    background-color: #1F2937;
+    color: white;
+    padding: 50px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-cont .intro{
+    display: flex;
+    flex-direction: column;
+}
+
+.intro-cont .intro strong{
+    font-size: 30px;
+}
+
+.intro-cont .image{
+    display: flex;
+}
+
+#clicker{
+    background-color: #1F2937;
+    color: white;
+    border: 1px white solid;
+    border-radius: 5px;
+    padding: 4px 10px;
+}
+
+.card-cont{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 90px;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-section{
+    display: flex;
+    gap: 12px;
+}
+
+.card p{
+    text-align: center;
+}
+
+.quote{
+    background-color: #E5E7EB;
+    display: flex;
+    flex-direction: column;
+    padding: 90px;
+}
+
+.quote i{
+    font-size: 30px;
+}
+
+.quote h1{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sign-up-cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.sign-up{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #3882F6;
+    gap: 40px;
+    padding: 10px 60px;
+}
+
+.sign-up-text{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.sign-up-button button{
+    background-color: #3882F6;
+    color: white;
+    border: 1px white solid;
+    border-radius: 5px;
+    padding: 4px 10px;
+}
+
+.footer{
+    background-color: #1F2937;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
