@@ -1,0 +1,23 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    background-color: #fff;
+    border: 1px solid #999;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    cursor: pointer;
+    font-size: 1em;
+    margin: 0.5em;
+    padding: 0.5em 1em;
+}
+
+#result-div{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 1em;
+    border: 5px double #999;
+}
