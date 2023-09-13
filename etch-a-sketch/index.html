@@ -13,8 +13,14 @@
   </div>
   <div id = "etch-a-sketch-container">
     <div id = "tools-container">
-      <button id="clear">Clear</button>
-      <button id="rainbow">Rainbow</button>
+      <button class = "delete" id="clear">Clear</button>
+      <button type="button" class="btn btn--purple" id = "rainbow">
+        <span class="btn__txt">Rainbow</span>
+        <i class="btn__bg" aria-hidden="true"></i>
+        <i class="btn__bg" aria-hidden="true"></i>
+        <i class="btn__bg" aria-hidden="true"></i>
+        <i class="btn__bg" aria-hidden="true"></i>
+      </button>
       <div id = "color-cont">
         <input type="color" id="color" name="color" value="#000000">
         <div class="info">
