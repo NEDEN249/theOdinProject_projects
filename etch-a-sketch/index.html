@@ -8,7 +8,31 @@
     <link rel="stylesheet" href="style.css">
   </head>
 <body>
-  <div id="grid-container"></div>
+  <div id = "title">
+    <h1>Etch-A-Sketch</h1>
+  </div>
+  <div id = "etch-a-sketch-container">
+    <div id = "tools-container">
+      <button id="clear">Clear</button>
+      <button id="rainbow">Rainbow</button>
+      <div id = "color-cont">
+        <input type="color" id="color" name="color" value="#000000">
+        <div class="info">
+          <h1>Input</h1>
+          <h2>Color</h2>
+        </div>
+      </div>
+      <div id="slide-container">
+        <input type="range" min="1" max="100" value="4" class="slider" id="myRange">
+        <p>Value: <span id="demo"></span></p>
+      </div>
+    </div>
+    <div id="grid-container"></div>
+  </div>
+  <div id = "footer">
+    <p>Created by <a href="https://github.com/NEDEN249">NEDEN249</a></p>
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="github logo" width="50px" height="50px">
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

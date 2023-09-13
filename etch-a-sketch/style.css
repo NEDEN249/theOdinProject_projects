@@ -1,16 +1,233 @@
-#grid-container {
+body{
     display: flex;
-    flex-wrap: wrap;
-    width: auto;
-    height: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: lightgray;
+}
+
+label{
+    font-size: 18px;
+}
+
+#slide-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#color-cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#etch-a-sketch-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 50px solid red;
+    border-radius: 20px;
+}
+
+#tools-container{
+    width: 200px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: lightblue;
+    border: 1px solid black;
+}
+
+#grid-container {
+    width: 400px; /* Set the desired width of the container */
+    height: 400px; /* Set the desired height of the container */
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Set the number of columns -> number of 1fr needed depends on size of grid say 6x6 needs 6 1fr*/
     background-color: red;
     border: 1px solid black;
-    padding: 10px;
+}
+
+#footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .square{
-    background-color: lightblue; /* Customize square appearance */
+    background-color: white; /* Customize square appearance */
     border: 1px solid gray; /* Customize square border */
-    width: 50px;
-    height: 50px;
 }
+
+button {
+    --s: .25em; /* control the wave*/
+    
+    padding: .4em .5em;
+    background-color: white;
+    color: black;
+    --_s: calc(var(--s)*4) 51% repeat-x;
+    --_r: calc(1.345*var(--s)) at left 50%;
+    --_g1: #000 99%,#0000 101%;
+    --_g2: #0000 99%,#000 101%;
+    --mask:
+      radial-gradient(var(--_r) top    calc(var(--s)* 1.9),var(--_g1)) 
+       calc(50% - 2*var(--s) - var(--_i,0px)) 0/var(--_s),
+      radial-gradient(var(--_r) top    calc(var(--s)*-0.9),var(--_g2)) 
+       calc(50% - var(--_i,0px)) var(--s)/var(--_s),
+      radial-gradient(var(--_r) bottom calc(var(--s)* 1.9),var(--_g1)) 
+       calc(50% - 2*var(--s) + var(--_i,0px)) 100%/var(--_s),
+      radial-gradient(var(--_r) bottom calc(var(--s)*-0.9),var(--_g2)) 
+       calc(50% + var(--_i,0px)) calc(100% - var(--s))/var(--_s);
+    -webkit-mask: var(--mask);
+            mask: var(--mask);
+    clip-path: polygon(
+      calc(2*var(--s) - var(--_i,0px)) 0,
+      calc(100%       - var(--_i,0px)) 0, 
+      calc(100% - var(--s)) 50%,
+      calc(100% - 2*var(--s) + var(--_i,0px)) 100%,
+      calc(0%                + var(--_i,0px)) 100%, 
+      var(--s) 50%);
+    cursor: pointer;
+    transition: .35s;
+  }
+  button.alt {
+    clip-path: polygon(
+      calc(0%                - var(--_i,0px)) 0,
+      calc(100% - 2*var(--s) - var(--_i,0px)) 0, 
+      calc(100% - var(--s)) 50%,
+      calc(100%       + var(--_i,0px)) 100%,
+      calc(2*var(--s) + var(--_i,0px)) 100%, 
+      var(--s) 50%);
+  }
+  button:hover {
+    --_i: calc(2*var(--s));
+  }
+  button.alt:hover {
+    --_i: calc(-2*var(--s));
+  }
+  button:active {
+    background-image: linear-gradient(#0004 0 0);
+  }
+  button:focus-visible {
+    -webkit-mask: none;
+    clip-path: none;
+    outline-offset: .1em;
+    padding-block: .2em;
+    margin-block: .2em;
+    transition: 0s;
+  }
+  
+  button {
+    font-family: system-ui, sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0;
+    cursor: pointer;
+    border: none;
+  }
+
+  #color-cont{
+    background: white;
+    box-shadow: 1em 1em 1em rgba(0, 0, 0, .1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #color-cont .info{
+    padding: 1em;
+    font-size: 10px;
+  }
+  
+  #color-cont h1{
+    margin: 0;
+    text-transform: uppercase;
+  }
+  
+  #color-cont h2{
+    font-weight: normal;
+    margin: 0;
+  }
+  
+  input[type="color"] {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    height: 5em;
+    padding: 0;
+    width: 5em;
+  }
+  
+  *:focus{
+    border-radius: 0;
+    outline: none;
+  }
+  
+  ::-webkit-color-color-cont-wrapper {
+    padding: 0;
+  }
+  
+  ::-webkit-color-color-cont{
+    border: 0;
+    border-radius: 0;
+  }
+  
+  ::-moz-color-color-cont,
+  ::-moz-focus-inner{
+    border: 0;
+  }
+  
+  ::-moz-focus-inner{
+    padding: 0;
+  }
+
+  .slider {
+    -webkit-appearance: none;
+    height: 10px;
+    background: white;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 8px;
+  }
+  
+  
+  /* for chrome/safari */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 40px;
+    background: white;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 4px;
+  }
+  
+  /* for firefox */
+  .slider::-moz-range-thumb {
+    width: 10px;
+    height: 40px;
+    background: white;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 4px;
+  }
