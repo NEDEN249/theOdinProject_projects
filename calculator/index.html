@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <title>Calculator</title>
     <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/calculator" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    <audio id="audio" style="display:none" src="keysound.mp3"></audio>
+    <h1>Calculator</h1>
     <div id = calculator>
         <div id = screen>
             <div id = "prev">
@@ -15,28 +19,31 @@
             </div>
         </div>
         <div id = "buttons">
-                <button class = "button" id = "clear">C</button>
-                <button class = "button" id = "backspace"> DEL </button>
+                <button class = "button" id = "clear"><span class = front>C</span></button>
+                <button class = "button" id = "backspace"><span class = front>DEL</span></button>
             <div id = bottom>
-                <button class = "button" id = "seven" data-number>7</button>
-                <button class = "button" id = "eight"  data-number>8</button>
-                <button class = "button" id = "nine" data-number>9</button>
-                <button class = "button" id = "divide" data-operation>/</button>
-                <button class = "button" id = "four" data-number>4</button>
-                <button class = "button" id = "five" data-number>5</button>
-                <button class = "button" id = "six" data-number>6</button>
-                <button class = "button" id = "multiply" data-operation>*</button>
-                <button class = "button" id = "one" data-number>1 </button>
-                <button class = "button" id = "two" data-number>2</button>
-                <button class = "button" id = "three" data-number>3</button>
-                <button class = "button" id = "subtract" data-operation>-</button>
-                <button class = "button" id = "decimal">.</button>
-                <button class = "button" id = "zero" data-number >0</button>
-                <button class = "button" id = "equal">=</button>
-                <button class = "button" id = "add" data-operation>+</button>
+                <button class = "button" id = "seven" data-number><span class = "front">7</span></button>
+                <button class = "button" id = "eight"  data-number><span class = "front">8</span></button>
+                <button class = "button" id = "nine" data-number><span class = "front">9</span></button>
+                <button class = "button" id = "divide" data-operation><span class = "front" id="operator">/</span></button>
+                <button class = "button" id = "four" data-number><span class = "front">4</span></button>
+                <button class = "button" id = "five" data-number><span class = "front">5</span></button>
+                <button class = "button" id = "six" data-number><span class = "front">6</span></button>
+                <button class = "button" id = "multiply" data-operation><span class = "front" id="operator">*</span></button>
+                <button class = "button" id = "one" data-number><span class = "front">1</span> </button>
+                <button class = "button" id = "two" data-number><span class = "front">2</span></button>
+                <button class = "button" id = "three" data-number><span class = "front">3</span></button>
+                <button class = "button" id = "subtract" data-operation><span class = "front" id="operator">-</span></button>
+                <button class = "button" id = "decimal"><span class = "front" id="operator">.</span></button>
+                <button class = "button" id = "zero" data-number ><span class = "front">0</span></button>
+                <button class = "button" id = "equal"><span class = "front" id="operator">=</span></button>
+                <button class = "button" id = "add" data-operation><span class = "front" id="operator">+</span></button>
             </div>
         </div>
     </div>
+    <div id = "author">
+        <a href="https://github.com/NEDEN249"> AUTHOR @NEDEN249</a>
     <script src="script.js"></script>
+    <script src="background.js"></script>
 </body>
 </html>

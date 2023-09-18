@@ -1,28 +1,67 @@
 /* style.css */
 
+
+
 body{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 30px;
+    background-color: #f2f2f2;
+}
+
+h1{
+    font-size: 50px;
+    font-family: 'Calculator', sans-serif;
+    color: #393e46;
+    padding-bottom: 10px;
+}
+
+#author{
+    font-size: 30px;
+    font-family: 'Calculator', sans-serif;
+    color: #393e46;
+    padding-top: 10px;
+}
+
+.front{
+    display: block;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    background: hsl(345deg 100% 47%);
+    color: white;
+    transform: translateY(-6px);  
 }
 
 .button{
-    padding: 10px;
-    border: 2px black solid;
-    border-radius: 5px;
-    background-color: white;
-    font-size: 20px;  
+    background: hsl(340deg 100% 32%);
+    border-radius: 12px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+}
+
+.button:active .front {
+    transform: translateY(-2px);
+  }
+
+#buttons{
+    background-color: #393e46;
+    padding: 8px;
+    border-radius: 10px;
 }
 
 #calculator {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 10px;
     justify-content: center;
-    background-color: gray;
-    width: 400px;
-    height: 500px;
+    background-color: #222831;
+    padding: 20px;
     border-radius: 10px;
 }
 
@@ -35,44 +74,44 @@ body{
     width: 300px;
     height: 100px;
     border-radius: 10px;
+    border: 3px solid #393e46;
 }
 
 #prev{
     padding-right: 10px;
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    font-family: 'Calculator', sans-serif;
 }
 
 #curr{
     padding-right: 10px;
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-#buttons{
-    height: auto;
-    width: auto;
+    font-size: 40px;
+    font-family: 'Calculator', sans-serif;
 }
 
 #clear{
-    background-color: rgb(255, 255, 255);
     height: 50px;
-    width: 148px;
+    width: 140px;
 }
 
 #backspace{
-    background-color: rgb(255, 255, 255);
     height: 50px;
-    width: 50px;
-    width: 148px;
+    width: 140px;
 }
-
 
 #bottom{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+    grid-gap: 15px;
     padding-top: 10px;
+}
+
+#divide, #multiply, #add, #subtract, #equal, #decimal{
+    background-color: darkorange;
+}
+
+#operator{
+    background-color: orange;
 }
 
 

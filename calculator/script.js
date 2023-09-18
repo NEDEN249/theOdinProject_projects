@@ -25,31 +25,37 @@ let div = (a,b) => a / b;
 //add click event listener to all buttons
 number.forEach(button => {
     button.addEventListener('click', () => {
+        document.getElementById('audio').play();
         appendNumber(button.textContent)
     })
 });
 
 operation.forEach(button => {
     button.addEventListener('click', () => {
+        document.getElementById('audio').play();
         getOperand(button.textContent)
     })
 });
 
 equal.addEventListener('click', () => {
+    document.getElementById('audio').play();
     if (currentOperation.textContent === '' || currentOperation.textContent === '0') return;
     compute(); 
 });
 
 del.addEventListener('click', () => {
+    document.getElementById('audio').play();
     if (currentOperation.textContent === '' || currentOperation.textContent === '0') return;
     deleteLastInput(); 
 });
 
 clear.addEventListener('click', () => {
+    document.getElementById('audio').play();
     reset(); 
 });
 
 decimal.addEventListener('click', () => { 
+    document.getElementById('audio').play();
     if (currentOperation.textContent === '' || currentOperation.textContent === '0') return;
     appendDecimal(); 
 });
