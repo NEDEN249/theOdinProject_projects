@@ -51,10 +51,10 @@ function displayBooks(){
         let book = document.createElement("div");
         book.innerHTML = `
             <div id="book-container"> 
-                <h3 id="book-info"> ${myLibrary[i].title}</h3> 
-                <h3 id="book-info"> ${myLibrary[i].author}</h3> 
-                <h3 id="book-info"> ${myLibrary[i].pages}</h3> 
-                <h3 id="book-info"> ${myLibrary[i].read}</h3> 
+                <h3 class="book-info"> Title: ${myLibrary[i].title}</h3> 
+                <h3 class="book-info"> Author: ${myLibrary[i].author}</h3> 
+                <h3 class="book-info"> Pages: ${myLibrary[i].pages}</h3> 
+                <h3 class="book-info"> Status: ${myLibrary[i].read}</h3> 
                 <button id="book-remove" onclick="removeBook(${i})">Remove</button>
                 <button id="toggle-read" onclick="toggleBook(${i})">Read</button>
             </div>
@@ -82,7 +82,7 @@ function toggleBook(book){
 }
 
 //for testing purposes
-//displayBooks("Harry Potter", "JK Rowling", 200, "Not Read");
+addBookToLibrary("Harry Potter", "JK Rowling", 200, "Not Read");
 
 
 
