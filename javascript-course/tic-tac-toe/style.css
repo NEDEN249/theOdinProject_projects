@@ -1,0 +1,119 @@
+body{
+    background-color: #6bf7ed;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    background-color: #3A3F47;
+    color: #EEEEEE;
+
+}
+
+.playerData{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+#turn-text{
+    font-size: 1.4rem;
+    color: #EEEEEE;
+}
+
+#turn{
+    background-color: #3A3F47;
+    width: 30%;
+    border-radius: 1rem;
+    padding: 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#outcome{
+    font-size: 1.4rem;
+    color: #EEEEEE;
+}
+
+#outcome-text{
+    background-color: #3A3F47;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+
+.board-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-color: antiquewhite;
+}
+
+.cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    background-color: #C4FA6F;
+    border: 3px solid #000;
+    cursor: pointer;
+    width: 4rem;
+    color: black;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+.cell:hover{
+    background-color: #6bf7ed;
+    color: #000;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    background-color: #3A3F47;
+    margin-top: auto;
+    color: #EEEEEE;
+}
+
+.glow {
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #C4FAF6, 0 0 40px #C4FAF6, 0 0 50px #C4FAF6, 0 0 60px #C4FAF6, 0 0 70px #C4FAF6;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #6bf7ed, 0 0 40px #6bf7ed, 0 0 50px #6bf7ed, 0 0 60px #6bf7ed, 0 0 70px #6bf7ed, 0 0 80px #6bf7ed;
+    }
+  }
