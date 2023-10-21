@@ -17,20 +17,18 @@ form.addEventListener("submit", (e) => {
     }
 });
 
-//constructor for creating book objects
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = function(){
-        return title + " by " + author + ", " + pages + " pages, " + read;
+class book {
+    constructor (title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
     }
 }
 
 //function to add a new book to the library after a form is submitted
 function addBookToLibrary(title, author, pages, read){
-    myLibrary.push(new Book(title, author, pages, read));
+    myLibrary.push(new book(title, author, pages, read));
     removePreviousSelection();
     displayBooks();
 }
@@ -83,13 +81,3 @@ function toggleBook(book){
 
 //for testing purposes
 addBookToLibrary("Harry Potter", "JK Rowling", 200, "Not Read");
-
-
-
-
-
-
-
-
-
-

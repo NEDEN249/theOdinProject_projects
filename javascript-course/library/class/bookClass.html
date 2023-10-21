@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div id = "body-container">
+        <div id = "new-book-button">
+            <div>
+                <a href="#new-book" class = "button">Add New Book</a>
+            </div>
+            <div>
+                <h1>Library</h1>
+            </div>
+        </div>
+        <div class = "overlay" id = "new-book">
+            <div class = "wrapper">
+                <h2>Please Fill up the Form</h2>
+                <a href="#" class = "close">&times;</a>
+                <div class = "content">
+                    <div class = "container">
+                        <form action="" id = "book-form">
+                            <label for="book">Book name</label>
+                            <input type="text" name="book" id="book"/>
+                            <label for="author">Author name</label>
+                            <input type="text" name="author" id="author"/>
+                            <label for="pages">Pages</label>
+                            <input type="number" name="pages" id="pages"/>
+                            <select name="read" id="read">
+                                <option value="Read">Read</option>
+                                <option value="Not Read">Not Read</option>
+                            </select>  
+                            <button type="submit" id="submit">submit book</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id = "book-display">
+            
+        </div>
+    </div>  
+</body>
+<script src="bookClass.js"></script>
+</html>
