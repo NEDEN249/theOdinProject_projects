@@ -1,11 +1,20 @@
 import _ from 'lodash';
-import myName from './myName';
+import printMe from './print.js';
+
+if (process.env.NODE_ENV !== 'production') {
+    console.log('Looks like we are in development mode!');
+  }
 
 function component(){
     const element = document.createElement('div');
-    //lodash, now important by this script below 
+    const btn = document.createElement('button');
+ 
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    element.textContent = myName('Cody');
+    
+    btn.innerHTML = 'Click me and check the console!';
+    btn.onclick = printMe;
+  
+    element.appendChild(btn);
 
     return element;
 }
