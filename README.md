@@ -1,3 +1,3 @@
-# daOdinProject_recipe
+# The Odin Project
 
-# Here I have all my foundational exercises related to The Odin Project https://www.theodinproject.com/dashboard 
+# Here I have all my projects related to The Odin Project https://www.theodinproject.com/dashboard 
