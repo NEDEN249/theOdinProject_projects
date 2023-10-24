@@ -26,7 +26,7 @@ const menu_text = {
 function render_menu(){
     const menu = createHTMLelement('div', 'menu-div', null);
 
-    const menu_title = createHTMLelement('h1', 'menu-title', 'Menu');
+    const menu_title = createHTMLelement('h1', 'menu-title', '^ Menu ^');
 
     const matcha_div = createHTMLelement('div', 'matcha-div', null);
     const matcha_name = createHTMLelement('h2', 'matcha-name', menu_text.Matcha_Latte.name);
@@ -68,10 +68,11 @@ function render_menu(){
    
     content.appendChild(menu);
 
-    cake_div.classList.add('menu-div');
-    hot_chocolate_div.classList.add('menu-div');
-    americano_div.classList.add('menu-div');
-    matcha_div.classList.add('menu-div');
+    cake_div.classList.add('menu-item-div');
+    hot_chocolate_div.classList.add('menu-item-div');
+    americano_div.classList.add('menu-item-div');
+    matcha_div.classList.add('menu-item-div');
+    menu_title.classList.add('title');
 }
 
 export { render_menu }

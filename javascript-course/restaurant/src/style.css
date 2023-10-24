@@ -86,7 +86,7 @@ nav{
     background-size: 30%;
 }
 
-#home-title{
+.title{
     font-family: catCafe;
     background: brown;
     border-radius: 5rem;
@@ -152,7 +152,41 @@ nav{
     border: dotted;
 }
 
+#menu-div{
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: blanchedalmond;
+    border-radius: 5rem;
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    background: url('./wood.png') no-repeat;
+    background-size: 150%;
+}
 
+.menu-item-div{
+    color: rgb(243, 242, 242);
+    padding: 1.5rem;
+    margin: 1rem;
+    background-color: brown;
+    border-radius: 5rem;
+    color: white;
+    border: dotted;
+    text-align: center;
+}
+
+#menu-title{
+    font-family: catCafe;
+    background: brown;
+    border-radius: 5rem;
+    padding: 1.5rem;
+    color: white;
+    font-size: 5rem;
+    border: dotted;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 #footer{
     display: flex;

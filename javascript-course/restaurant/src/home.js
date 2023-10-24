@@ -36,6 +36,7 @@ function render_home(){
     home.appendChild(home_location_div);
     
     content.appendChild(home);
+    home_title.classList.add('title');
 }
 
 export { render_home };

@@ -2,6 +2,7 @@ import { render_navbar } from './navbar';
 import { render_footer } from './footer';
 import { render_home } from './home';
 import { render_menu } from './menu';
+import { render_contact } from './contact';
 import './style.css';
 
 const content = document.getElementById('content');
@@ -30,9 +31,14 @@ function menu_page(){
     render_footer();
 }
 
-//home_page();
-menu_page();
+function contact_page(){
+    render_navbar();
+    render_contact();
+    render_footer();
+}
 
+//home_page();
+contact_page();
 
 document.addEventListener('click', (e) => {
     const event = e.target.innerText;
@@ -46,8 +52,7 @@ document.addEventListener('click', (e) => {
     }
     else if (event === 'Contact'){
         content.innerHTML = '';
-        render_navbar();
-        render_footer();
+        contact_page();
     }
 });
 
