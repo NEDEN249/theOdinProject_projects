@@ -162,6 +162,7 @@ nav{
     border: solid;
     background: url('./wood.png') no-repeat;
     background-size: 150%;
+    background-repeat: repeat-y;
 }
 
 .menu-item-div{
@@ -188,9 +189,30 @@ nav{
     justify-content: center;
 }
 
+#contact-div{
+    margin-top: 3rem;
+    border-radius: 5rem;
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    max-width: 80%;
+}
+
+#contact-details-div{
+    color: rgb(243, 242, 242);
+    padding: 1.5rem;
+    margin: 1rem;
+    background-color: brown;
+    border-radius: 5rem;
+    color: white;
+    border: dotted;
+    text-align: center;
+}
+
 #footer{
     display: flex;
     margin-top: auto 0;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
