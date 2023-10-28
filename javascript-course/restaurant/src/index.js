@@ -37,8 +37,7 @@ function contact_page(){
     render_footer();
 }
 
-//home_page();
-contact_page();
+home_page();
 
 document.addEventListener('click', (e) => {
     const event = e.target.innerText;
