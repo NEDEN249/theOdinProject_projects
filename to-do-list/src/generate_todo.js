@@ -1,6 +1,5 @@
 //generates a todo 
 import { createHTMLelement } from "./html_element_creator";
-import { middle_div } from "./middle";
 
 function create_todo_container(middle_div){
     const todo_container = createHTMLelement('div', 'todo-container', null);
