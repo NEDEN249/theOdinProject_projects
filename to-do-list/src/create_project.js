@@ -23,8 +23,3 @@ const projects = (() => {
 
 export { projects };
 
-//so I think use projects.create_project(title) to create a project, this will be stored in project array
-//then use projects.project_array to access the project array -> this will be used to render the sidebar
-//project_array -> projects -> todos
-//requires reworking of to-do's
-//will need to rework later on when I add local storage

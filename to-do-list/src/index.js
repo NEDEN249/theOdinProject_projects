@@ -1,5 +1,5 @@
 import { render_header } from "./header.js";
-import { create_todo, create_todo_container } from "./generate_todo.js"
+import { create_todo, create_todo_container, show_details } from "./generate_todo.js"
 import { create_todo_object } from "./create_todo.js"
 import { render_middle_div } from "./middle.js";
 import { form } from "./form.js";
@@ -32,8 +32,6 @@ if (projects.project_array.length === 0){ //if there are no projects in the arra
 }
 
 //TESTING
-projects.addTodo(0, create_todo_object('test', 'test', 'test', 'test'));
-display_todos(projects.project_array[0]);
 
 todo_form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -48,9 +46,11 @@ todo_form.addEventListener("submit", (e) => {
         const index = current_project.id-1;
         //alert(current_project.title + ' ' + current_project.id)
         projects.addTodo(index, create_todo_object(title, description, dueDate, priority));
-        todo_container.appendChild(create_todo(create_todo_object(title, description, dueDate, priority)));
+        current_project.todos.push(create_todo_object(title, description, dueDate, priority));
+        todo_container.appendChild(create_todo(create_todo_object(title, dueDate, priority, description)));
+        //alert(title + ' ' + description + ' ' + dueDate + ' ' + priority);
     }
-});
+})
 
 project_creator.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -83,7 +83,7 @@ project_div.addEventListener('click', (e) => {
             display_todos(project);
         }
     })
-});
+})
 
 function display_todos(project){
     removePreviousSelection();
@@ -93,4 +93,4 @@ function display_todos(project){
 }
 
 //render_footer_div
-export { container, current_project }
+export { container, middle }
