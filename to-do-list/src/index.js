@@ -21,19 +21,19 @@ const projects_container = render_sidebar_div();
 middle.appendChild(projects_container);
 middle.appendChild(todo_container);
 const project_div = document.getElementById('project-div');
-//current_project is equal to the projects index inside of the project_array
+//current_project is equal to the projects who is currently selected by the user
 let current_project = null;
 
-//below has created a project and added a todo to it and then rendered it to todo_container
-//it is functional but now -> display projects, allow user to create projects and allow user to swap between projects
-projects.create_project('Default');
-projects.project_array[0].todos.push(create_todo_object('Implement Projects', 'ITS WORKING', 'dueDate', 'priority'));
-project_div.appendChild(createHTMLelement('p', 'project-element', projects.project_array[0].title))
-projects.create_project('test');
-projects.project_array[1].todos.push(create_todo_object('Test', 'Test', 'Test', 'Test'));
-projects.project_array[1].todos.push(create_todo_object('Test', 'Test', 'Test', 'Test'));
-projects.project_array[1].todos.push(create_todo_object('Test', 'Test', 'Test', 'Test'));
-project_div.appendChild(createHTMLelement('p', 'project-element', projects.project_array[1].title))
+//create a default project
+if (projects.project_array.length === 0){ //if there are no projects in the array then create a default project, else a default project must already exist
+    projects.create_project('General');
+    current_project = projects.project_array[0];
+    project_div.appendChild(createHTMLelement('p', 'project-element', projects.project_array[0].title));
+}
+
+//TESTING
+projects.addTodo(0, create_todo_object('test', 'test', 'test', 'test'));
+display_todos(projects.project_array[0]);
 
 todo_form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -45,7 +45,8 @@ todo_form.addEventListener("submit", (e) => {
         alert('Please fill in all the fields');
     }
     else{
-        const index = current_project.id - 1;
+        const index = current_project.id-1;
+        //alert(current_project.title + ' ' + current_project.id)
         projects.addTodo(index, create_todo_object(title, description, dueDate, priority));
         todo_container.appendChild(create_todo(create_todo_object(title, description, dueDate, priority)));
     }
@@ -60,7 +61,6 @@ project_creator.addEventListener("submit", (e) => {
     else{
         projects.create_project(title);
         project_div.appendChild(createHTMLelement('p', 'project-element', title));
-        //project_index.push([{title : index}])
     }
 });
 
@@ -93,5 +93,4 @@ function display_todos(project){
 }
 
 //render_footer_div
-todo_container.appendChild(create_todo(create_todo_object('Implement Projects', 'Have a general project that is automatically selected, but have the ability to add projects by clicking a button -> prompted to give project a name and it should appear on the side bar -> clicking on the project makes it active so any new to-dos are added to that project until you swap to another that is, you should associate to-dos with the project that was active during the time they were created', 'dueDate', 'priority')));
 export { container, current_project }

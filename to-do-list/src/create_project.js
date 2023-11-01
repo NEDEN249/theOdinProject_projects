@@ -19,7 +19,6 @@ const projects = (() => {
     }
 
     return { project_array, create_project, addTodo }
-    
 })();
 
 export { projects };

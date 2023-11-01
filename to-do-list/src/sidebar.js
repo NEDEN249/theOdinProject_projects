@@ -12,10 +12,4 @@ function render_sidebar_div(){
     return sidebar;
 }
 
-//when clicking on the project, read the name -> this is project_id -> use that to grab the correct project from project_array and proceed to loop through and display each to-do which is stored in project.todos
-function display_projects(projects, project_id){
-
-}
-
-
 export { render_sidebar_div }
