@@ -12,7 +12,7 @@ function project_form(){
     content.classList.add('form-content');
     const container = createHTMLelement('div', 'form-container', null);
     container.classList.add('form-container');
-    const form = createHTMLelement('form', 'todo-form', null);
+    const form = createHTMLelement('form', 'project-form', null);
     form.setAttribute('action', '');
     const title_label = createHTMLelement('label', 'title-label', 'Title');
     title_label.setAttribute('for', 'todo-title');

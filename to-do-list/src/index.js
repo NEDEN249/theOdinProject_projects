@@ -46,9 +46,9 @@ todo_form.addEventListener("submit", (e) => {
         const index = current_project.id-1;
         //alert(current_project.title + ' ' + current_project.id)
         projects.addTodo(index, create_todo_object(title, description, dueDate, priority));
-        current_project.todos.push(create_todo_object(title, description, dueDate, priority));
+        current_project = projects.project_array[index];
         todo_container.appendChild(create_todo(create_todo_object(title, dueDate, priority, description)));
-        //alert(title + ' ' + description + ' ' + dueDate + ' ' + priority);
+        document.getElementById('todo-form').reset();
     }
 })
 
@@ -61,6 +61,13 @@ project_creator.addEventListener("submit", (e) => {
     else{
         projects.create_project(title);
         project_div.appendChild(createHTMLelement('p', 'project-element', title));
+        const del = project_div.appendChild(createHTMLelement('button', 'project-delete', '🗑️'));
+        del.addEventListener('click', (e) => {
+            projects.removeProject(projects.id-1);
+            e.target.previousSibling.remove();
+            e.target.remove();
+        });
+        document.getElementById('project-form').reset();
     }
 });
 
@@ -93,4 +100,4 @@ function display_todos(project){
 }
 
 //render_footer_div
-export { container, middle }
+export { container, middle, display_todos }
