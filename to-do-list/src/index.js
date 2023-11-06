@@ -1,5 +1,5 @@
 import { render_header } from "./header.js";
-import { create_todo, create_todo_container, show_details } from "./generate_todo.js"
+import { create_todo, create_todo_container } from "./generate_todo.js"
 import { create_todo_object } from "./create_todo.js"
 import { render_middle_div } from "./middle.js";
 import { form } from "./form.js";
@@ -45,7 +45,7 @@ todo_form.addEventListener("submit", (e) => {
     else{
         const index = current_project.id-1;
         //alert(current_project.title + ' ' + current_project.id)
-        projects.addTodo(index, create_todo_object(title, description, dueDate, priority));
+        projects.addTodo(index, create_todo_object(title, dueDate, priority, description));
         current_project = projects.project_array[index];
         todo_container.appendChild(create_todo(create_todo_object(title, dueDate, priority, description)));
         document.getElementById('todo-form').reset();

@@ -30,11 +30,11 @@ const projects = (() => {
         //alert(project_array.length);
     }
 
-    function editTodo(project_id, index, title, description, dueDate, priority){
+    function editTodo(project_id, index, title, dueDate, priority, description){
         project_array[project_id].todos[index].title = title;
-        project_array[project_id].todos[index].description = description;
         project_array[project_id].todos[index].dueDate = dueDate;
         project_array[project_id].todos[index].priority = priority;
+        project_array[project_id].todos[index].description = description;
     }
 
     return { project_array, create_project, addTodo, removeTodo, removeProject, editTodo }

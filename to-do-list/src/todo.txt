@@ -1,5 +1,3 @@
 -make project's editable -> a button that exists next to a projects name -> be able to change the name of the project
--fix bug of general not being selected properly when addign todos initially
--fix bug where the priority and description are swapped when editing a todo
 -implement local storage -> save projects and todos to local storage -> when page is refreshed -> load projects and todos from local storage
 -focus on styling and making it look nice -> make it look like a real app

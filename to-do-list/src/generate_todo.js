@@ -74,6 +74,10 @@ function show_details(title, dueDate, priority, description){
         projects.project_array.forEach((project) => {
             project.todos.forEach((todo, index) => {
                 if (todo.title === e.target.parentNode.childNodes[0].childNodes[0].textContent){
+                    alert(todo.title);
+                    alert(todo.description);
+                    alert(todo.dueDate);
+                    alert(todo.priority);
                     const edit = edit_form();
                     middle.appendChild(edit);
                     let title = document.getElementById('edit-title');
@@ -84,7 +88,7 @@ function show_details(title, dueDate, priority, description){
                     description.value = todo.description;
                     dueDate.value = todo.dueDate;
                     priority.value = todo.priority;
-                    alert(description.value);
+                    alert(todo.title + ' ' + todo.description + ' ' + todo.dueDate + ' ' + todo.priority);
                     edit.addEventListener('submit', (f) => {
                         f.preventDefault();
                         projects.editTodo(project.id-1, index, title.value, description.value, dueDate.value, priority.value);
