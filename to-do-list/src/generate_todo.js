@@ -42,7 +42,7 @@ function create_todo(data){
         projects.project_array.forEach((project) => {
             project.todos.forEach((todo, index) => {
                 if (todo.title === e.target.parentNode.childNodes[0].textContent){
-                    projects.removeTodo(project.id-1, index);
+                    projects.removeTodo(projects.findProject(project.title), index);
                 }
             });
         });
@@ -72,12 +72,12 @@ function show_details(title, dueDate, priority, description){
     edit.addEventListener('click', (e) => {
         document.getElementById('overlay-details').remove();
         projects.project_array.forEach((project) => {
-            project.todos.forEach((todo, index) => {
+            project.todos.forEach((todo) => {
                 if (todo.title === e.target.parentNode.childNodes[0].childNodes[0].textContent){
-                    alert(todo.title);
-                    alert(todo.description);
-                    alert(todo.dueDate);
-                    alert(todo.priority);
+                    // alert(todo.title);
+                    // alert(todo.description);
+                    // alert(todo.dueDate);
+                    // alert(todo.priority);
                     const edit = edit_form();
                     middle.appendChild(edit);
                     let title = document.getElementById('edit-title');
@@ -88,10 +88,12 @@ function show_details(title, dueDate, priority, description){
                     description.value = todo.description;
                     dueDate.value = todo.dueDate;
                     priority.value = todo.priority;
-                    alert(todo.title + ' ' + todo.description + ' ' + todo.dueDate + ' ' + todo.priority);
+                    let project_index = projects.findProject(project.title);
+                    let todo_index = projects.findTodo(todo.title, project_index);
+                    //alert(todo.title + ' ' + todo.description + ' ' + todo.ef + ' ' + todo.priority);
                     edit.addEventListener('submit', (f) => {
                         f.preventDefault();
-                        projects.editTodo(project.id-1, index, title.value, description.value, dueDate.value, priority.value);
+                        projects.editTodo(project_index, todo_index, title.value, dueDate.value, priority.value, description.value);
                         //delete the targeted todo from the DOM
                         let todo_container = document.getElementById('todo-container');
                         todo_container.appendChild(create_todo(create_todo_object(title.value, dueDate.value, priority.value, description.value)));  

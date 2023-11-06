@@ -27,7 +27,7 @@ function form(){
     const dueDate_label = createHTMLelement('label', 'dueDate-label', 'Due Date');
     dueDate_label.setAttribute('for', 'todo-dueDate');
     const todo_dueDate = createHTMLelement('input', 'todo-dueDate', null);
-    todo_dueDate.setAttribute('type', 'text');
+    todo_dueDate.setAttribute('type', 'date');
     todo_dueDate.setAttribute('name', 'todo-dueDate');
     const priority_label = createHTMLelement('label', 'priority-label', 'Priority');
     priority_label.setAttribute('for', 'todo-priority');

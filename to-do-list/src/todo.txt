@@ -1,3 +1,1 @@
--make project's editable -> a button that exists next to a projects name -> be able to change the name of the project
--implement local storage -> save projects and todos to local storage -> when page is refreshed -> load projects and todos from local storage
 -focus on styling and making it look nice -> make it look like a real app
