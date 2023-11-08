@@ -1,9 +1,10 @@
 //generates a todo 
 import { createHTMLelement } from "./html_element_creator";
-import { middle, display_todos } from "./index";
+import { middle } from "./index";
+import { displayTodos } from "./display";
 import { projects } from "./create_project";
-import { edit_form } from "./edit_form";
-import { create_todo_object } from "./create_todo";
+import { edit_form } from "./forms";
+import { create_todo_object } from "./create_todo_object";
 
 
 function create_todo_container(middle_div){
@@ -97,7 +98,7 @@ function show_details(title, dueDate, priority, description){
                         //delete the targeted todo from the DOM
                         let todo_container = document.getElementById('todo-container');
                         todo_container.appendChild(create_todo(create_todo_object(title.value, dueDate.value, priority.value, description.value)));  
-                        display_todos(project);
+                        displayTodos(project);
                     });
                 }
             });

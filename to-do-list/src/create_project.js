@@ -2,8 +2,7 @@ const projects = (() => {
     let project_array = [];
     //localStorage.clear();
     if (localStorage.getItem('projects') === null){
-     //idk
-        alert('aight it empty');
+        
     }
     else{
         const project_local = JSON.parse(localStorage.getItem('projects'));
