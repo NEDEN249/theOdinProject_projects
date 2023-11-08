@@ -16,15 +16,17 @@ function createProjectDiv(name){
             }
         })
     })
-    const individual_project_div = document.createElement('div');
-    individual_project_div.appendChild(createHTMLelement('p', 'project-element', name));
+    const individual_project_div = createHTMLelement('div', 'project-element-div', null);
+    individual_project_div.appendChild(createHTMLelement('p', 'project-title', name));
 
-    const del = individual_project_div.appendChild(createHTMLelement('button', 'project-delete', '🗑️'));
+    const del = individual_project_div.appendChild(createHTMLelement('a', 'project-delete', '🗑️'));
         del.addEventListener('click', (e) => {
             let index = projects.findProject(e.target.previousSibling.textContent);
             //here
             projects.removeProject(index);
             e.target.parentNode.remove();
+            current_project = projects.project_array[0];
+            displayTodos(current_project);
         });
         const project_edit = createHTMLelement('a', 'project-edit', '✏️');
         individual_project_div.appendChild(project_edit);

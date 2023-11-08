@@ -25,7 +25,7 @@ function create_todo(data){
     const todo_priority = createHTMLelement('p', 'todo-priority', 'Priority: ' + data.priority);
     todo_div.appendChild(todo_priority);
 
-    const button_details = createHTMLelement('a', 'detail-button', 'Details');
+    const button_details = createHTMLelement('a', 'detail-button', '✏️');
     todo_div.appendChild(button_details);
     //alert(data.title + ' ' + data.description + ' ' + data.dueDate + ' ' + data.priority);
     button_details.addEventListener('click', (e) => {
@@ -37,7 +37,7 @@ function create_todo(data){
         document.getElementById('overlay-details').classList.add('is-visible');
     });
 
-    const delete_button = createHTMLelement('a', 'delete-button', 'Delete');
+    const delete_button = createHTMLelement('a', 'delete-button', '🗑️');
     todo_div.appendChild(delete_button);
     delete_button.addEventListener('click', (e) => {
         projects.project_array.forEach((project) => {
