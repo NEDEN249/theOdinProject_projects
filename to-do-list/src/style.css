@@ -74,7 +74,7 @@ a{
 	background-color: #CDE9D6;
 	color: white;
 	border-radius: 1rem;
-	padding: 0.2rem;
+	padding: 0.5rem;
 	border: solid #a6dfb8;
 }
 
@@ -82,6 +82,9 @@ a{
 	display: flex;
 	flex-direction: column;
 	padding: 0.5rem;
+	background-color: #D2E4FD;
+	border: solid #a0c8ff;
+	border-radius: 1rem;
 }
 
 #project-title{
@@ -123,13 +126,28 @@ a{
 	justify-content: space-evenly;
 }
 
-#todo-div p{
+.todo-items{
 	font-size: 1.1rem;
 	border-radius: 1rem;
 	align-self: center;
 	background-color: #CDE9D6;
 	border: solid #a6dfb8;
 	padding: 1rem;
+}
+
+.high-priority{
+	background-color: #F8D3CF;
+	border: solid #fcbdb6;
+}
+
+.medium-priority{
+	background-color: #FFF1CB;
+	border: solid #fce29b;
+}
+
+.low-priority{
+	background-color: #CDE9D6;
+	border: solid #a6dfb8;
 }
 
 #detail-button, #delete-button{
@@ -173,7 +191,8 @@ a{
 button{
     font-size: 1em;
 	padding: 5px 10px;
-	color: black;
+	background-color: #F8D3CF;
+	border: solid #fcbdb6;
 	text-decoration: none;
 	cursor: pointer;
 	transition: all 0.3s ease-out;
@@ -231,8 +250,8 @@ button{
 
 .wrapper {
 	margin: 70px auto;
-	padding: 20px;
-	background: #4F4557;
+	padding: 2rem;
+	background: #a6dfb8;
 	border-radius: 5px;
 	width: 30%;
 	position: relative;
@@ -263,32 +282,70 @@ button{
 
 .form-container {
 	border-radius: 5px;
-	background-color: #4F4557;
+	background-color: #a6dfb8;
 	padding: 20px 0;
+}
+
+#todo-form{
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.todo-details-para{
+	background-color: #D2E4FD;
+	border: solid #a0c8ff;
+	padding: 1rem;
+	border-radius: 1rem;
+}
+
+#edit-todo{
+	font-size: 1em;
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s ease-out;
+	border-radius: 50px;
+    font-weight: bold;
+	background-color: #FFF1CB;
+	border: solid #fce29b;
 }
 
 form label {
 	text-transform: uppercase;
 	font-weight: 500;
 	letter-spacing: 3px;
-    color: white;
+    color: black;
 }
+
+input[type=date]{
+	width: 100%;
+	padding: 12px;
+	background-color: #D2E4FD;
+	border: solid #a0c8ff;
+	border-radius: 1rem;
+	box-sizing: border-box;
+	margin-top: 6px;
+	margin-bottom: 16px;
+}
+
 input[type=text], select, textarea {
 	width: 100%;
 	padding: 12px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
+	background-color: #D2E4FD;
+	border: solid #a0c8ff;
 	box-sizing: border-box;
 	margin-top: 6px;
 	margin-bottom: 16px;
 	resize: vertical;
+	border-radius: 1rem;
 }
 input[type="submit"] {
 	background-color: #413b3b;
 	color: #fff;
 	padding: 15px 50px;
 	border: none;
-	border-radius: 50px;
+	border-radius: 2rem;
 	cursor: pointer;
 	font-size: 15px;
 	text-transform: uppercase;

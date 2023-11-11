@@ -10,7 +10,7 @@ function form(){
     overlay.classList.add('overlay')
     const wrapper = createHTMLelement('div', 'wrapper', null);
     wrapper.classList.add('wrapper');
-    const title = createHTMLelement('h1', 'title', 'Please Fill in the To-Do details');
+    const title = createHTMLelement('h1', 'title', 'Fill in To-Do Details');
     const close = createHTMLelement('a', 'close', 'X');
     close.setAttribute('href', '#');
     const content = createHTMLelement('div', 'form-content', null);
@@ -24,6 +24,7 @@ function form(){
     const todo_title = createHTMLelement('input', 'todo-title', null);
     todo_title.setAttribute('type', 'text');
     todo_title.setAttribute('name', 'todo-title');
+    todo_title.setAttribute('maxlength', '25');
     const description_label = createHTMLelement('label', 'description-label', 'Description');
     description_label.setAttribute('for', 'todo-description');
     const todo_description = createHTMLelement('input', 'todo-description', null);
@@ -93,7 +94,7 @@ function edit_form(){
     overlay.classList.add('overlay')
     const wrapper = createHTMLelement('div', 'wrapper', null);
     wrapper.classList.add('wrapper');
-    const title = createHTMLelement('h1', 'title', 'Please Fill in the To-Do details');
+    const title = createHTMLelement('h1', 'title', 'Fill in To-Do Details');
     const close = createHTMLelement('a', 'close', 'X');
     close.setAttribute('href', '#');
     const content = createHTMLelement('div', 'edit-form-content', null);
@@ -107,6 +108,7 @@ function edit_form(){
     const todo_title = createHTMLelement('input', 'edit-title', null);
     todo_title.setAttribute('type', 'text');
     todo_title.setAttribute('name', 'edit-title');
+    todo_title.setAttribute('maxlength', '25');
     const description_label = createHTMLelement('label', 'description-label', 'Description');
     description_label.setAttribute('for', 'edit-description');
     const todo_description = createHTMLelement('input', 'edit-description', null);
@@ -156,7 +158,7 @@ function project_form(){
     overlay_project.classList.add('overlay-project')
     const wrapper = createHTMLelement('div', 'wrapper', null);
     wrapper.classList.add('wrapper');
-    const title = createHTMLelement('h1', 'title', 'Please Fill in project details');
+    const title = createHTMLelement('h1', 'title', 'Fill in Project Details');
     const close = createHTMLelement('a', 'close', 'X');
     close.setAttribute('href', '#');
     const content = createHTMLelement('div', 'form-content', null);
@@ -170,6 +172,7 @@ function project_form(){
     const project_title = createHTMLelement('input', 'project-title', null);
     project_title.setAttribute('type', 'text');
     project_title.setAttribute('name', 'todo-title');
+    project_title.setAttribute('maxlength', '10');
     const submit = createHTMLelement('button', 'submit', 'Submit');
     submit.setAttribute('type', 'submit');
     submit.setAttribute('value', 'Submit');
@@ -205,7 +208,7 @@ function project_edit_form(){
     overlay_project.classList.add('overlay-project')
     const wrapper = createHTMLelement('div', 'wrapper', null);
     wrapper.classList.add('wrapper');
-    const title = createHTMLelement('h1', 'title', 'Please Fill in project details');
+    const title = createHTMLelement('h1', 'title', 'Fill in Project Details');
     const close = createHTMLelement('a', 'close', 'X');
     close.setAttribute('href', '#');
     const content = createHTMLelement('div', 'form-content', null);
@@ -219,6 +222,7 @@ function project_edit_form(){
     const project_title = createHTMLelement('input', 'edit-project-title', null);
     project_title.setAttribute('type', 'text');
     project_title.setAttribute('name', 'todo-title');
+    project_title.setAttribute('maxlength', '10');
     const submit = createHTMLelement('button', 'submit', 'Submit');
     submit.setAttribute('type', 'submit');
     submit.setAttribute('value', 'Submit');

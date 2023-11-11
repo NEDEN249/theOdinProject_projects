@@ -18,13 +18,22 @@ function create_todo(data){
 
     const todo_title = createHTMLelement('p', 'todo-title', data.title);
     todo_div.appendChild(todo_title);
-
+    todo_title.classList.add('todo-items');
     const todo_dueDate = createHTMLelement('p', 'todo-dueDate', 'Due on: ' + data.dueDate);
     todo_div.appendChild(todo_dueDate);
-
+    todo_dueDate.classList.add('todo-items')
     const todo_priority = createHTMLelement('p', 'todo-priority', 'Priority: ' + data.priority);
+    todo_priority.classList.add('todo-items');
     todo_div.appendChild(todo_priority);
-
+    if (todo_priority.textContent === 'Priority: high'){
+        todo_priority.classList.add('high-priority');
+    }
+    else if (todo_priority.textContent === 'Priority: medium'){
+        todo_priority.classList.add('medium-priority');
+    }
+    else if (todo_priority.textContent === 'Priority: low'){
+        todo_priority.classList.add('low-priority');
+    }
     const button_details = createHTMLelement('a', 'detail-button', '✏️');
     todo_div.appendChild(button_details);
     //alert(data.title + ' ' + data.description + ' ' + data.dueDate + ' ' + data.priority);
@@ -68,7 +77,7 @@ function show_details(title, dueDate, priority, description){
         document.getElementById('overlay-details').classList.remove('is-visible');
     });
 
-    const edit = createHTMLelement('a', 'edit-todo', 'Edit');
+    const edit = createHTMLelement('a', 'edit-todo', '✏️');
     edit.setAttribute('href', '#edit-form');
     edit.addEventListener('click', (e) => {
         document.getElementById('overlay-details').remove();
@@ -112,12 +121,24 @@ function show_details(title, dueDate, priority, description){
     const container = createHTMLelement('div', 'form-container', null);
     container.classList.add('form-container');
 
-    let todo_due_date = createHTMLelement('p', 'due-date', 'Due on: ' + dueDate);
-    let todo_priority = createHTMLelement('p', 'priority', 'Priority: ' + priority);
-    let todo_description = createHTMLelement('p', 'description', 'Description: ' + description);
+    let todo_date_label = createHTMLelement('label', 'due-date-label', 'DUE-DATE');
+    todo_date_label.classList.add('todo-details-label');
+    let todo_priority_label = createHTMLelement('label', 'priority-label', 'PRIORITY');
+    todo_priority_label.classList.add('todo-details-label');
+    let todo_description_label = createHTMLelement('label', 'description-label', 'DESCRIPTION');
+    todo_description_label.classList.add('todo-details-label');
+    let todo_due_date = createHTMLelement('p', 'due-date', dueDate);
+    let todo_priority = createHTMLelement('p', 'priority', priority);
+    let todo_description = createHTMLelement('p', 'description', description);
+    todo_due_date.classList.add('todo-details-para');
+    todo_priority.classList.add('todo-details-para');
+    todo_description.classList.add('todo-details-para');
 
+    container.appendChild(todo_date_label);
     container.appendChild(todo_due_date);
+    container.appendChild(todo_priority_label);
     container.appendChild(todo_priority);
+    container.appendChild(todo_description_label);
     container.appendChild(todo_description);
 
     content.appendChild(container);

@@ -35,7 +35,7 @@ function createProjectDiv(name){
         project_edit.addEventListener('click', (e) => {
                 projects.project_array.forEach((project) => {
                     if (project.title === e.target.parentNode.firstChild.textContent){
-                        alert(e.target.parentNode.firstChild.textContent);
+                        //alert(e.target.parentNode.firstChild.textContent);
                         const project_editor = project_edit_form();
                         middle.appendChild(project_editor);
                         let title = document.getElementById('edit-project-title');
