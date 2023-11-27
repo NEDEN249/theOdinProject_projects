@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class = "container"> 
+        <div class = "slideshow">
+            <a class = "prev" onclick="plusSlides(-1)">PREV</a>
+            <div class = "slide fade">
+                <img id = "image" src="yujin.png" alt="">
+            </div>
+            <div class = "slide fade">
+                <img id = "image" src="teehong.png" alt="">
+            </div>
+            <div class = "slide fade">
+                <img id = "image" src="chipwon.png" alt="">
+            </div>
+            <a class = "next" onclick="plusSlides(1)">NEXT</a>
+        </div>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+          </div>
+    </div>
+</body>
+<script src="image-sld.js"></script>
+</html>

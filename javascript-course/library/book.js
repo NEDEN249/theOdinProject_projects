@@ -9,7 +9,7 @@ form.addEventListener("submit", (e) => {
     let author = document.getElementById("author");
     let pages = document.getElementById("pages");
     let read = document.getElementById("read");
-    if (title.value == " " || author.value == " " || pages.value == " " || read.value == " "){
+    if (title.value == "" || author.value == "" || pages.value == "" || read.value == ""){
         alert("Please enter the book details in full");
     } else {
     addBookToLibrary(title.value, author.value, pages.value, read.value);

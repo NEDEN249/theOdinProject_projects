@@ -1,0 +1,54 @@
+#email:invalid{
+    border: 1px solid red;
+}
+
+#email:valid{
+    border: 1px solid green;
+}
+
+#password:invalid{
+    border: 1px solid red;
+}
+
+#password:valid{
+    border: 1px solid green;
+}
+
+#password2:invalid{
+    border: 1px solid red;
+}
+
+#password2:valid{
+    border: 1px solid green;
+}
+
+#postCode:invalid{
+    border: 1px solid red;
+}
+
+#postCode:valid{
+    border: 1px solid green;
+}
+
+#country:invalid{
+    border: 1px solid red;
+}
+
+#country:valid{
+    border: 1px solid green;
+}
+
+.error {
+    width: 100%;
+    padding: 0;
+    font-size: 80%;
+    color: white;
+    background-color: #900;
+    border-radius: 0 0 5px 5px;
+    box-sizing: border-box;
+  }
+  
+  .error.active {
+    padding: 0.3em;
+  }
+

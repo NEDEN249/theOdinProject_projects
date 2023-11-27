@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF randomiser</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="#">
+    <button>Randomise</button>
+    <input type = "text" placeholder = "Enter your search">
+    <script>
+        const button = document.querySelector('button');
+        const input = document.querySelector('input');
+        const img = document.querySelector('img');
+        button.addEventListener('click', function() {
+            let query = input.value;
+            requestGIF(`https://api.giphy.com/v1/gifs/translate?api_key=LSiWBrr7koieTGfrPcjQ4ouljTAFDC92&s=${query}`, function(json) {
+            });
+        });
+        function requestGIF(url) {
+            fetch(url, {mode:"cors"})
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(response) {
+                img.src = response.data.images.original.url;
+            })
+            .catch(e => {
+                console.log(e)
+            });
+        }
+    </script>
+</body>
+</html>

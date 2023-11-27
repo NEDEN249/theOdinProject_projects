@@ -1,0 +1,2 @@
+-up to fetching data
+-https://api.giphy.com/v1/gifs/translate?api_key=LSiWBrr7koieTGfrPcjQ4ouljTAFDC92&s=cats

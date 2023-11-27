@@ -1,0 +1,77 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    height: 400vh;
+}
+
+#header{
+    background-color: rgb(35, 240, 240);
+    padding: 1rem;
+    position: relative;
+}
+
+.dropbttn{
+    background-color: red;
+    color: black;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbttn:hover, .dropbttn:focus{
+    background-color:rgb(248, 84, 84);
+}
+
+.drop-down-content{
+    display: none;
+    background-color: #f1f1f1;
+    min-width: 1.6rem;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.drop-down-content a{
+    color: black;
+    padding: 1.2rem 1.6rem;
+    text-decoration: none;
+}
+
+.drop-down-content a:hover {
+    background-color: #ddd;
+}
+
+.show{
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s ease-in;
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}
+
+#home, #about, #contact{
+    height: 100%;
+}
+
+#home{
+    background-color: rgb(240, 240, 35);
+}
+
+#about{
+    background-color: rgb(240, 35, 240);
+}
+
+#contact{
+    background-color: rgb(35, 240, 35);
+}
+

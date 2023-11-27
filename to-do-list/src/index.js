@@ -27,7 +27,7 @@ displayTodos(current_project);
 //create a default project if no project exists
 if (projects.project_array.length === 0){ //if there are no projects in the array then create a default project, else a default project must already exist
     projects.create_project('General');
-    let current_project = projects.project_array[0];
+    current_project = projects.project_array[0];
     createProjectDiv(projects.project_array[0].title);
 }
 
