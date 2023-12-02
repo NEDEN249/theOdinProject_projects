@@ -1,4 +1,6 @@
+import { displayCurrentWeatherData, displayForecastWeatherData, displayCurrentHourlyData } from "./displayWeatherData";
 import { create_current_weather_object, create_forecast_weather_object } from "./weatherObject";
+import { container, currentDataContainer, forecastDataContainer, currentHourDataContainer } from "./index";
 
 //contains the data for the weather conditions at the given time
 let currentData = [];
@@ -12,12 +14,14 @@ async function getWeatherData(location) {
     const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=baa070e815f843288da152813232111&q=${location}&days=3&aqi=yes`, {mode: 'cors'})
     const data = await response.json();
     console.log(data);
-    forecastData.push([data.location.name, data.location.region]);
+    // forecastData.push([data.location.name, data.location.region]);
     currentData.push([data.location.name, data.location.region]);
     extractCurrentWeatherData(data.current);
     extractForecastWeatherData(data.forecast);
     extractHourlyWeatherData(data.forecast);
-    //console.log(formatDate(new Date()));
+    displayCurrentWeatherData(currentData, currentDataContainer);
+    displayForecastWeatherData(forecastData, forecastDataContainer);
+    displayCurrentHourlyData(currentHourData, currentHourDataContainer);
 }
 
 //extracts the current weather data from the json file and stores it in the currentData array
@@ -43,6 +47,7 @@ function extractHourlyWeatherData(data){
         weather_data["rain"] = rain;
         let temperature = data.forecastday[0].hour[i].temp_c;
         weather_data["temperature"] = temperature;
+        weather_data["time"] = i;
         currentHourData.push(weather_data);
     }
     //console.log(currentHourData);
@@ -57,7 +62,7 @@ function extractForecastWeatherData(data){
         let minimumTemperature = data.forecastday[i].day.mintemp_c;
         let maximumTemperature = data.forecastday[i].day.maxtemp_c;
         let rain = data.forecastday[i].day.daily_chance_of_rain;
-        let humidity = data.forecastday[i].day.avghumidity
+        let humidity = data.forecastday[i].day.avghumidity;
         forecastData.push(create_forecast_weather_object(minimumTemperature, maximumTemperature, rain, humidity));
     }
     //console.log(forecastData);
@@ -70,4 +75,4 @@ function formatDate(date){
     //can also return an object if you wish to have day, date and year seperate (just split on ',')
 }
 
-export { forecastData, currentData, currentHourData, getWeatherData }
+export { forecastData, currentData, currentHourData, getWeatherData, formatDate }
