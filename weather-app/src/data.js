@@ -19,7 +19,6 @@ async function getWeatherData(location) {
     extractCurrentWeatherData(data.current);
     extractForecastWeatherData(data.forecast);
     extractHourlyWeatherData(data.forecast);
-    console.log('below is the shit');
     console.log(data.forecast);
     displayCurrentLocationData(currentData, currentDataContainer);
     displayCurrentWeatherData(currentData, currentDataContainer);
@@ -38,8 +37,6 @@ function extractCurrentWeatherData(data){
     const humidity = data.humidity;
     const date = data.is_day;
     currentData.push(create_current_weather_object(temperature, uv, windSpeed, windDirection, condition, feelsLike, humidity, date));
-    // console.log("below me is forecastData array");
-    //console.log(currentData);
 }
 
 //extracts the hourly weather data from the json file and stores it in the currentHourData array
@@ -88,7 +85,6 @@ function extractForecastWeatherData(data){
 function formatDate(date){
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
     return date.toLocaleDateString("en-US", options);
-    //can also return an object if you wish to have day, date and year seperate (just split on ',')
 }
 
 export { forecastData, currentData, currentHourData, getWeatherData, formatDate }

@@ -20,14 +20,8 @@ function displayCurrentWeatherData(currentData, container){
     currentDetailsContainer.id = 'current-details-weather-container';
     const currentTemperatureContainer = document.createElement('div');
     currentTemperatureContainer.id = 'current-temperature-container';
-    // const location = document.createElement('h2');
-    // location.id = 'location';
-    // location.textContent = currentData[0][0] + ', ' + currentData[0][1];
-    // const date = document.createElement('h3');
-    // date.id = 'date';
-    // date.textContent = formatDate(new Date());
     const temperature = document.createElement('h3');
-    temperature.id = 'temperature';
+    temperature.id = 'current-temperature';
     temperature.textContent = currentData[1].temperature + '°';
     const condition = document.createElement('h3');
     condition.id = 'condition';
@@ -47,8 +41,6 @@ function displayCurrentWeatherData(currentData, container){
     const uv = document.createElement('h3');
     uv.id = 'uv';
     uv.textContent = 'UV Index: ' + currentData[1].uv;
-    //currentDetailsContainer.appendChild(date);
-    //currentDetailsContainer.appendChild(location);
     currentTemperatureContainer.appendChild(temperature);
     currentTemperatureContainer.appendChild(condition);
     currentDetailsContainer.appendChild(feelsLike);
@@ -99,7 +91,7 @@ function displayForecastWeatherData(forecastData, container){
         forecastDay.appendChild(minimumTemperature);
         forecastDay.appendChild(maximumTemperature);
         forecastDay.appendChild(rain);
-        forecastDay.appendChild(humidity);
+        //forecastDay.appendChild(humidity);
         forecastContainer.appendChild(forecastDay);
     }
     container.appendChild(forecastContainer);

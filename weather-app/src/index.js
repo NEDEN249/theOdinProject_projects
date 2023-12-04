@@ -17,6 +17,14 @@ container.appendChild(forecastDataContainer);
 const currentHourDataContainer = document.createElement('div');
 currentHourDataContainer.id = 'current-hour-data-container';
 container.appendChild(currentHourDataContainer);
+const footer = document.createElement('div');
+footer.id = 'footer';
+const me = document.createElement('a');
+me.id = 'me';
+me.textContent = 'Made by: Nathan Eden';
+me.href = 'https://github.com/NEDEN249';
+footer.appendChild(me);
+container.appendChild(footer);
 const form = document.getElementById('location-form');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
