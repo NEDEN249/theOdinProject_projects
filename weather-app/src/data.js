@@ -1,4 +1,4 @@
-import { displayCurrentWeatherData, displayForecastWeatherData, displayCurrentHourlyData } from "./displayWeatherData";
+import { displayCurrentLocationData, displayCurrentWeatherData, displayForecastWeatherData, displayCurrentHourlyData } from "./displayWeatherData";
 import { create_current_weather_object, create_forecast_weather_object } from "./weatherObject";
 import { container, currentDataContainer, forecastDataContainer, currentHourDataContainer } from "./index";
 
@@ -19,6 +19,9 @@ async function getWeatherData(location) {
     extractCurrentWeatherData(data.current);
     extractForecastWeatherData(data.forecast);
     extractHourlyWeatherData(data.forecast);
+    console.log('below is the shit');
+    console.log(data.forecast);
+    displayCurrentLocationData(currentData, currentDataContainer);
     displayCurrentWeatherData(currentData, currentDataContainer);
     displayForecastWeatherData(forecastData, forecastDataContainer);
     displayCurrentHourlyData(currentHourData, currentHourDataContainer);
@@ -41,13 +44,26 @@ function extractCurrentWeatherData(data){
 
 //extracts the hourly weather data from the json file and stores it in the currentHourData array
 function extractHourlyWeatherData(data){
-    for (let i = 0; i < data.forecastday[0].hour.length; i++){
+    const currentTime = new Date().toLocaleTimeString();
+    const currentHour = parseInt(currentTime.substring(0, 2));
+    for (let i = currentHour; i < data.forecastday[0].hour.length; i++){
         let weather_data = {};
         let rain = data.forecastday[0].hour[i].chance_of_rain;
         weather_data["rain"] = rain;
         let temperature = data.forecastday[0].hour[i].temp_c;
         weather_data["temperature"] = temperature;
         weather_data["time"] = i;
+        currentHourData.push(weather_data);
+    }
+    const remainingHours = currentHour + 1;
+    console.log(remainingHours);
+    for (let j = 0; j < remainingHours; j++){
+        let weather_data = {};
+        let rain = data.forecastday[1].hour[j].chance_of_rain;
+        weather_data["rain"] = rain;
+        let temperature = data.forecastday[1].hour[j].temp_c;
+        weather_data["temperature"] = temperature;
+        weather_data["time"] = j;
         currentHourData.push(weather_data);
     }
     //console.log(currentHourData);
