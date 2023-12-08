@@ -23,6 +23,16 @@ a{
 
 #current-temperature{
     font-size: 5rem;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 10rem;
+    border: 0.5rem solid rgba(0,0,0,0.6);
+}
+
+#current-condition{
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 10rem;
+    padding: 1rem;
+    border: 0.5rem solid rgba(0,0,0,0.6);
 }
 
 #current-data-container{
@@ -41,13 +51,51 @@ a{
     padding: 3rem;
     border-radius: 5rem;
     text-align: right;
-    height: 22rem;
+    height: 28rem;
     width: auto;
     border: 0.5rem solid rgba(0,0,0,0.3);
 }
 
+#wind-img, #wind-dir-img{
+    height: 4rem;
+    width: 6rem;
+    filter: brightness(0) invert(1);
+}
+
+#humidity-img, #feels-like-img, #location-img{
+    height: 5rem;
+    width: 5rem;
+    filter: brightness(0) invert(1);
+}
+
+#uv-img {
+    height: 6rem;
+    width: 6rem;
+    filter: brightness(0) invert(1);
+}
+
+#current-details-weather-container div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+#location-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
 #current-location-container{
-    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.1rem;
     width: 28rem;
     height: 22rem;
     background-color: rgba(0,0,0,0.3);
@@ -56,11 +104,16 @@ a{
     border: 0.5rem solid rgba(0,0,0,0.3);
 }
 
+#date{
+    font-size: 2rem;
+}
+
+
 #current-temperature-container{
     font-size: 3rem;
     background-color: rgba(0,0,0,0.5);
     border-radius: 25rem;
-    padding: 7rem 14rem;
+    padding: 7rem 15rem;
     text-align: center;
     border: 0.5rem solid rgba(0,0,0,0.3);
 }
@@ -120,7 +173,7 @@ input[type=text] {
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    background-image: url('search-icon.png');
+    background-image: url('./icons/search-icon.png');
     background-size: 1.3rem;
     background-position: 10px 10px; 
     background-repeat: no-repeat;
@@ -179,6 +232,7 @@ input[type=text] {
     }
     #current-details-weather-container{
         text-align: center;
+        height: auto;
     }
     #forecast-data-container{
         margin-left: 0;
@@ -189,4 +243,16 @@ input[type=text] {
     #forecast-day{
         text-align: center;
     }
+    #current-temperature-container{
+        border-radius: 3rem;
+        padding: 2.5rem 4.5rem;
+    }
+    #current-location-container{
+        width: fit-content;
+        padding: 1rem;
+    }
+    #date{
+        font-size: 1.5rem;
+    }
+    
 }

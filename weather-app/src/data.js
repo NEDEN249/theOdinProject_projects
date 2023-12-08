@@ -1,5 +1,5 @@
 import { displayCurrentLocationData, displayCurrentWeatherData, displayForecastWeatherData, displayCurrentHourlyData } from "./displayWeatherData";
-import { create_current_weather_object, create_forecast_weather_object } from "./weatherObject";
+import { create_current_weather_object, create_forecast_weather_object, createHourlyWeatherObject } from "./weatherObject";
 import { container, currentDataContainer, forecastDataContainer, currentHourDataContainer } from "./index";
 
 //contains the data for the weather conditions at the given time
@@ -19,7 +19,7 @@ async function getWeatherData(location) {
     extractCurrentWeatherData(data.current);
     extractForecastWeatherData(data.forecast);
     extractHourlyWeatherData(data.forecast);
-    console.log(data.forecast);
+    //console.log(data.forecast);
     displayCurrentLocationData(currentData, currentDataContainer);
     displayCurrentWeatherData(currentData, currentDataContainer);
     displayForecastWeatherData(forecastData, forecastDataContainer);
@@ -36,7 +36,8 @@ function extractCurrentWeatherData(data){
     const feelsLike = data.feelslike_c;
     const humidity = data.humidity;
     const date = data.is_day;
-    currentData.push(create_current_weather_object(temperature, uv, windSpeed, windDirection, condition, feelsLike, humidity, date));
+    const icon = data.condition.icon;
+    currentData.push(create_current_weather_object(temperature, uv, windSpeed, windDirection, condition, feelsLike, humidity, date, icon));
 }
 
 //extracts the hourly weather data from the json file and stores it in the currentHourData array
@@ -64,7 +65,6 @@ function extractHourlyWeatherData(data){
         currentHourData.push(weather_data);
     }
     //console.log(currentHourData);
-
 }
 
 //extracts the forecast weather data from the json file and stores it in the forecastData array
