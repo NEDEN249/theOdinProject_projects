@@ -11,9 +11,10 @@ let currentHourData = [];
 
 //asynchronous function that fetches the weather data from the weather api
 async function getWeatherData(location) {
+    //insert loading screen here
     const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=baa070e815f843288da152813232111&q=${location}&days=3&aqi=yes`, {mode: 'cors'})
     const data = await response.json();
-    console.log(data);
+    //remove loading screen here
     // forecastData.push([data.location.name, data.location.region]);
     currentData.push([data.location.name, data.location.region]);
     extractCurrentWeatherData(data.current);
