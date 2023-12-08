@@ -23,16 +23,6 @@ a{
 
 #current-temperature{
     font-size: 5rem;
-    background-color: rgba(0,0,0,0.8);
-    border-radius: 10rem;
-    border: 0.5rem solid rgba(0,0,0,0.6);
-}
-
-#current-condition{
-    background-color: rgba(0,0,0,0.8);
-    border-radius: 10rem;
-    padding: 1rem;
-    border: 0.5rem solid rgba(0,0,0,0.6);
 }
 
 #current-data-container{
@@ -116,6 +106,7 @@ a{
     padding: 7rem 15rem;
     text-align: center;
     border: 0.5rem solid rgba(0,0,0,0.3);
+    background-blend-mode: color-dodge;
 }
 
 #forecast-data-container{
