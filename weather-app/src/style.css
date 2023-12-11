@@ -1,7 +1,7 @@
 body{
     margin: 0;
     overflow: auto;
-    background-image: url('./nature.jpg');
+    background-image: url('./icons/nature.jpg');
     background-size: cover;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

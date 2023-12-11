@@ -1,8 +1,9 @@
-import { container, formContainer} from './index';
 import { locationForm } from './locationForm';
 
-function initialise(){
+// initialise the containers for the app
+function initialiseContainers(container){
     const formContainer = document.createElement('div');
+    formContainer.id = 'form-container';
     formContainer.appendChild(locationForm());
     container.appendChild(formContainer);
     const currentDataContainer = document.createElement('div');
@@ -14,12 +15,6 @@ function initialise(){
     const currentHourDataContainer = document.createElement('div');
     currentHourDataContainer.id = 'current-hour-data-container';
     container.appendChild(currentHourDataContainer);
-    const footer = document.createElement('div');
-    footer.id = 'footer';
-    const me = document.createElement('a');
-    me.id = 'me';
-    me.textContent = 'Made by: Nathan Eden';
-    me.href = 'https://github.com/NEDEN249';
-    footer.appendChild(me);
-    container.appendChild(footer);
 }
+
+export { initialiseContainers }

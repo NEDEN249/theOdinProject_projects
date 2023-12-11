@@ -1,50 +1,34 @@
 import './style.css';
 import { forecastData, currentData, currentHourData, getWeatherData, errorHandler } from './data'
-import { locationForm } from './locationForm';
-import { displayCurrentWeatherData } from './displayWeatherData';
-import { initialise } from './initialise';
+import { emptyContainer } from './emptyContainer';
+import { footer } from './footer';
+import { initialiseContainers } from './initContainer';
+import { loadingScreen } from './displayWeatherData';
 
-getWeatherData('Perth');
 const container = document.getElementById("container");
-const formContainer = document.createElement('div');
-formContainer.appendChild(locationForm());
-container.appendChild(formContainer);
-const currentDataContainer = document.createElement('div');
-currentDataContainer.id = 'current-data-container';
-container.appendChild(currentDataContainer);
-const forecastDataContainer = document.createElement('div');
-forecastDataContainer.id = 'forecast-data-container';
-container.appendChild(forecastDataContainer);
-const currentHourDataContainer = document.createElement('div');
-currentHourDataContainer.id = 'current-hour-data-container';
-container.appendChild(currentHourDataContainer);
-const footer = document.createElement('div');
-footer.id = 'footer';
-const me = document.createElement('a');
-me.id = 'me';
-me.textContent = 'Made by: Nathan Eden';
-me.href = 'https://github.com/NEDEN249';
-footer.appendChild(me);
-container.appendChild(footer);
+
+// get a default location 
+getWeatherData('Perth');
+
+initialiseContainers(container);
+const currentDataContainer = document.getElementById("current-data-container");
+const forecastDataContainer = document.getElementById("forecast-data-container");
+const currentHourDataContainer = document.getElementById("current-hour-data-container");
+const formContainer = document.getElementById("form-container");
+footer(container);
+
+// handles the form submission 
 const form = document.getElementById('location-form');
 form.addEventListener('submit', (e) => {
+    formContainer.appendChild(loadingScreen());
     e.preventDefault();
     forecastData = [], currentData = [], currentHourData = [];
     const locationInput = document.getElementById('location-input');
     getWeatherData(locationInput.value).catch(errorHandler);
     locationInput.value = '';
-    removePreviousSelection('current-data-container');
-    removePreviousSelection('forecast-data-container');
-    removePreviousSelection('current-hour-data-container');
+    emptyContainer('current-data-container');
+    emptyContainer('forecast-data-container');
+    emptyContainer('current-hour-data-container');
 });
-
-function removePreviousSelection(div){
-    let items = document.getElementById(div);
-    let child = items.lastElementChild;
-    while (child){
-        items.removeChild(child);
-        child = items.lastElementChild;
-    }
-}
 
 export { container, currentDataContainer, forecastDataContainer, currentHourDataContainer, formContainer }

@@ -4,19 +4,16 @@ import { currentDataContainer, forecastDataContainer, currentHourDataContainer }
 
 //contains the data for the weather conditions at the given time
 let currentData = [];
-//contains the data conditions as a whole for the current day and the next 2 days
+//contains the data conditions for the current day and the next 2 days
 let forecastData = [];
-//contains the data conditions as a whole for each hour of next 24 hours
+//contains the data conditions for each hour of next 24 hours
 let currentHourData = [];
 
 //asynchronous function that fetches the weather data from the weather api
 async function getWeatherData(location) {
-    //insert loading screen here
-        const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=baa070e815f843288da152813232111&q=${location}&days=3&aqi=yes`, {mode: 'cors'});
-        const data = await response.json();
-        console.log(data);
-        processResponse(data);  
-    //remove loading screen here
+    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=baa070e815f843288da152813232111&q=${location}&days=3&aqi=yes`, {mode: 'cors'});
+    const data = await response.json();
+    processResponse(data);  
 }
 
 function errorHandler(err){
@@ -25,6 +22,9 @@ function errorHandler(err){
 }
 
 function processResponse(data){
+    if (document.getElementById('loading-container') != null){
+        document.getElementById('loading-container').remove();
+    }
     currentData.push([data.location.name, data.location.region]);
     extractCurrentWeatherData(data.current);
     extractForecastWeatherData(data.forecast);
@@ -60,7 +60,6 @@ function extractHourlyWeatherData(data){
         currentHourData.push(createHourlyWeatherObject(rain, temperature, i, icon));
     }
     const remainingHours = currentHour + 1;
-    console.log(remainingHours);
     for (let j = 0; j < remainingHours; j++){
         let rain = data.forecastday[1].hour[j].chance_of_rain;
         let temperature = data.forecastday[1].hour[j].temp_c;

@@ -1,5 +1,3 @@
-import { getWeatherData } from "./data";
-
 function locationForm(){
     const form = document.createElement('form');
     form.id = 'location-form';
