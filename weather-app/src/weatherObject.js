@@ -1,4 +1,4 @@
-function create_current_weather_object(temperature, uv, windSp, windDir, condition, feelslike, humidity, date, icon){
+function createCurrentWeatherObject(temperature, uv, windSp, windDir, condition, feelslike, humidity, date, icon){
     return {
         temperature: temperature,
         uv: uv,
@@ -12,21 +12,23 @@ function create_current_weather_object(temperature, uv, windSp, windDir, conditi
     }
 }
 
-function create_forecast_weather_object(minTemp, maxTemp, rain, humidity){
+function createForecastWeatherObject(minTemp, maxTemp, rain, humidity, icon){
     return {
         minTemp: minTemp,
         maxTemp: maxTemp,
         rain: rain,
-        humidity: humidity
+        humidity: humidity,
+        icon: icon
     }
 }
 
-function createHourlyWeatherObject(rain, temperature, time){
+function createHourlyWeatherObject(rain, temperature, time, icon){
     return {
         rain: rain,
         temperature: temperature,
-        time: time
+        time: time,
+        icon: icon
     }
 }
 
-export { create_current_weather_object, create_forecast_weather_object, createHourlyWeatherObject}
+export { createCurrentWeatherObject, createForecastWeatherObject, createHourlyWeatherObject}

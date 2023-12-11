@@ -6,6 +6,8 @@ import feelsLikeIcon from './icons/feels-like.png';
 import uvIcon from './icons/uv.png';
 import locationIcon from './icons/location.png';
 
+//this file contains the functions which are used to generate the html elements which display the weather data
+
 function displayCurrentLocationData(currentData, container){
     const currentContainer = document.createElement('div');
     currentContainer.id = 'current-location-container';
@@ -35,9 +37,11 @@ function displayCurrentWeatherData(currentData, container){
     const icon = currentData[1].icon;
     currentTemperatureContainer.style.backgroundImage = `url(${icon})`;
     currentTemperatureContainer.id = 'current-temperature-container';
+    
     const temperature = document.createElement('h3');
     temperature.id = 'current-temperature';
     temperature.textContent = currentData[1].temperature + '°';
+   
     const condition = document.createElement('h3');
     condition.id = 'current-condition';
     condition.textContent = currentData[1].condition;
@@ -131,12 +135,12 @@ function displayForecastWeatherData(forecastData, container){
         const date = document.createElement('h3');
         date.id = 'forecast-date';
         date.textContent = forecastDays[i];
-        const minimumTemperature = document.createElement('h3');
-        minimumTemperature.id = 'minimum-temperature';
-        minimumTemperature.textContent = 'Min: ' + forecastData[i].minTemp + '°';
-        const maximumTemperature = document.createElement('h3');
-        maximumTemperature.id = 'maximum-temperature';
-        maximumTemperature.textContent = 'Max: ' + forecastData[i].maxTemp + '°';
+        const icon = document.createElement('img');
+        icon.src = forecastData[i].icon;
+        icon.id = 'forecast-icon';
+        const temperature = document.createElement('h3');
+        temperature.id = 'for-temperature';
+        temperature.textContent = forecastData[i].minTemp + ' / ' + forecastData[i].maxTemp + '°';
         const rain = document.createElement('h3');
         rain.id = 'rain';
         rain.textContent = 'Rain: ' + forecastData[i].rain + '%';
@@ -144,10 +148,9 @@ function displayForecastWeatherData(forecastData, container){
         humidity.id = 'humidity';
         humidity.textContent = 'Humidity: ' + forecastData[i].humidity+ '%';
         forecastDay.appendChild(date);
-        forecastDay.appendChild(minimumTemperature);
-        forecastDay.appendChild(maximumTemperature);
+        forecastDay.appendChild(icon);
+        forecastDay.appendChild(temperature);
         forecastDay.appendChild(rain);
-        //forecastDay.appendChild(humidity);
         forecastContainer.appendChild(forecastDay);
     }
     container.appendChild(forecastContainer);
@@ -163,6 +166,9 @@ function displayCurrentHourlyData(currentHourData, container){
         const time = document.createElement('h3');
         time.id = 'time';
         time.textContent = currentHourData[i].time + ':00';
+        const icon = document.createElement('img');
+        icon.src = currentHourData[i].icon;
+        icon.id = 'icon';
         const rain = document.createElement('h3');
         rain.id = 'rain';
         rain.textContent = 'Rain: ' + currentHourData[i].rain + '%';
@@ -170,6 +176,7 @@ function displayCurrentHourlyData(currentHourData, container){
         temperature.id = 'temperature';
         temperature.textContent = currentHourData[i].temperature + '°';
         hourly.appendChild(time);
+        hourly.appendChild(icon);
         hourly.appendChild(rain);
         hourly.appendChild(temperature);
         hourlyContainer.appendChild(hourly);

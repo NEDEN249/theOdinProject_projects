@@ -1,4 +1,4 @@
-import { container } from './index';
+import { getWeatherData } from "./data";
 
 function locationForm(){
     const form = document.createElement('form');
