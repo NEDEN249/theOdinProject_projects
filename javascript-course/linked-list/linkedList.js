@@ -115,9 +115,40 @@ class LinkedList {
         return string;
     }
 
-    // insertAt(value, index){
-
-    // }
+    insertAt(value, index){
+        if (index < 0 || index >= this.length){
+            return null;
+        }
+        const newNode = new Node(value);
+        if (!this.head){
+            this.head = newNode;
+            this.tail = newNode;
+            this.length++;
+            return newNode;
+        }
+        if(index === 0){ //if index is 0, then we are prepending
+            this.prepend(value);
+            return newNode;
+        }
+        if (index === this.length - 1){ //if index is the last index, then we are appending
+            this.append(value);
+            return newNode;
+        }
+        let currentNode = this.head;
+        let currentIndex = 0;
+        while(currentNode.next !== null){
+            if(currentIndex === index){
+                newNode.next = currentNode.next;
+                currentNode.next = newNode;
+                this.length++;
+                return newNode;
+            }
+            else{
+                currentIndex++;
+                currentNode = currentNode.next;
+            }
+        }
+    }
 
     // removeAt(index){
 
@@ -141,6 +172,9 @@ console.log(myLinkedUpList.getHead());
 console.log(myLinkedUpList.at(2));
 console.log(myLinkedUpList.contains(1));
 console.log(myLinkedUpList.find(4));
+console.log(myLinkedUpList.toString());
+myLinkedUpList.insertAt(0, 2);
+console.log(myLinkedUpList.toString());
 
 
 
