@@ -204,7 +204,6 @@ class LinkedList {
             }
         }
     }
-    
 }
 
 const myLinkedUpList = new LinkedList();
