@@ -206,41 +206,22 @@ class binarySearchTree{
         return values;
     }
     height(node){
-        if (this.root === null)
-		return;
-
-        let depth = -1;
-        let height = -1;
-
-        const queue = [];
-        queue.push(this.root);
-        let level = 0;
-
-        while (queue.length > 0) {
-            const n = queue.length;
-            for (let i = 0; i < n; i++) {
-                const frontNode = queue.shift();
-                if (frontNode.data === node)
-                    depth = level;
-                if (frontNode.left !== null)
-                    queue.push(frontNode.left);
-                if (frontNode.right !== null)
-                    queue.push(frontNode.right);
-            }
-            level++;
+        if(!node){
+            return -1;
         }
-
-        height = level - depth - 1;
-        return height;
+        const left = this.height(node.left);
+        const right = this.height(node.right);
+        return Math.max(left, right) + 1;
     }
     isBalanced(){
         if(!this.root){
             return null;
         }
         let balanced = true;
-        if(this.traverse(this.root) === false){
-            return false;
-        };
+        let result = this.traverse(this.root);
+        if(result === false){
+            balanced = false;
+        }
         return balanced;
     }
     traverse(node){
@@ -260,9 +241,6 @@ class binarySearchTree{
         return this;
     }
 }
-
-const bst = new binarySearchTree([1,2,3,4,5,6,7,8,9,10]);
-console.log(bst.root);
 const prettyPrint = (node, prefix = "", isLeft = true) => {
     if (node === null) {
       return;
@@ -275,18 +253,34 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
       prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
     }
   };
-console.log("print 1")
-prettyPrint(bst.root);
-bst.insert(11);
-console.log("print 2")
-prettyPrint(bst.root);
-bst.delete(9);
-console.log("print 3")
-prettyPrint(bst.root);
-console.log(bst.find(3));
-console.log(bst.levelorder());
-console.log(bst.inOrder());
-console.log(bst.preOrder());
-console.log(bst.postOrder());
-console.log(bst.height(6));
-console.log(bst.isBalanced());
+
+function script(){
+    const arr = [];
+    for(let i = 0; i < 20; i++){
+        arr.push(Math.floor(Math.random() * 100));
+    }
+    const bst = new binarySearchTree(arr);
+    console.log(bst.isBalanced());
+    console.log(bst.levelorder());
+    console.log(bst.preOrder());
+    console.log(bst.postOrder());
+    console.log(bst.inOrder());
+    bst.insert(101);
+    bst.insert(102);
+    bst.insert(103);
+    bst.insert(104);
+    bst.insert(105);
+    bst.insert(86);
+    bst.insert(107);
+    bst.insert(18);
+    bst.insert(109);
+    bst.insert(110);
+    console.log(bst.isBalanced());
+    bst.rebalance();
+    console.log(bst.isBalanced());
+    console.log(bst.levelorder());
+    console.log(bst.preOrder());
+    console.log(bst.postOrder());
+    console.log(bst.inOrder());
+}
+script();
