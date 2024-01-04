@@ -135,7 +135,130 @@ class binarySearchTree{
             }
         }
     }
+    levelorder(callback){ //bfs
+        if(!this.root){
+            return null;
+        }
+        const values = [];
+        const queue = [];
+        queue.push(this.root);
+        while(queue.length > 0){
+            const currentNode = queue.shift();
+            values.push(currentNode.data);
+            if(currentNode.left){
+                queue.push(currentNode.left);
+            }
+            if(currentNode.right){
+                queue.push(currentNode.right);
+            }
+        }
+        return values;
+    }
+    inOrder(callback){
+        if(!this.root){
+            return null;
+        }
+        const values = [];
+        function traverse(node){
+            if(node.left){
+                traverse(node.left);
+            }
+            values.push(node.data);
+            if(node.right){
+                traverse(node.right);
+            }
+        }
+        traverse(this.root);
+        return values;
+    }
+    preOrder(callback){
+        if(!this.root){
+            return null;
+        }
+        const values = [];
+        function traverse(node){
+            values.push(node.data);
+            if(node.left){
+                traverse(node.left);
+            }
+            if(node.right){
+                traverse(node.right);
+            }
+        }
+        traverse(this.root);
+        return values;
+    }
+    postOrder(callback){
+        if(!this.root){
+            return null;
+        }
+        const values = [];
+        function traverse(node){
+            if(node.left){
+                traverse(node.left);
+            }
+            if(node.right){
+                traverse(node.right);
+            }
+            values.push(node.data);
+        }
+        traverse(this.root);
+        return values;
+    }
+    height(node){
+        if (this.root === null)
+		return;
 
+        let depth = -1;
+        let height = -1;
+
+        const queue = [];
+        queue.push(this.root);
+        let level = 0;
+
+        while (queue.length > 0) {
+            const n = queue.length;
+            for (let i = 0; i < n; i++) {
+                const frontNode = queue.shift();
+                if (frontNode.data === node)
+                    depth = level;
+                if (frontNode.left !== null)
+                    queue.push(frontNode.left);
+                if (frontNode.right !== null)
+                    queue.push(frontNode.right);
+            }
+            level++;
+        }
+
+        height = level - depth - 1;
+        return height;
+    }
+    isBalanced(){
+        if(!this.root){
+            return null;
+        }
+        let balanced = true;
+        if(this.traverse(this.root) === false){
+            return false;
+        };
+        return balanced;
+    }
+    traverse(node){
+        if(node.left){
+            this.traverse(node.left);
+        }
+        if(node.right){
+            this.traverse(node.right);
+        }
+        if(Math.abs(this.height(node.left) - this.height(node.right)) > 1){
+            return false;
+        }
+    }
+    rebalance(){
+        const values = this.inOrder();
+        this.root = this.buildTree(values);
+        return this;
+    }
 }
 
 const bst = new binarySearchTree([1,2,3,4,5,6,7,8,9,10]);
@@ -160,3 +283,10 @@ prettyPrint(bst.root);
 bst.delete(9);
 console.log("print 3")
 prettyPrint(bst.root);
+console.log(bst.find(3));
+console.log(bst.levelorder());
+console.log(bst.inOrder());
+console.log(bst.preOrder());
+console.log(bst.postOrder());
+console.log(bst.height(6));
+console.log(bst.isBalanced());
